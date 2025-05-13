@@ -29,6 +29,7 @@ ALTER TABLE raamat ADD foreign key (zanrID)
 REFERENCES zanr(zanrID)
 
 drop table autor;
+
 CREATE TABLE autor(autorID int not null PRIMARY Key identity(1,1),
 autorEesnimi varchar(25),
 autorPerenimi varchar(30),
@@ -51,3 +52,14 @@ VALUES(
 SELECT * FROM raamat;
 --raamatu kustutamine
 DELETE FROM raamat WHERE raamatudID=2
+
+--trykID lisamine raamat tabelisse poolik
+CREATE TABLE trykikoda(
+trykID int not null PRIMARY Key identity(1,1),
+tryknimi varchar(100) not null,
+aadress varchar(100) not null)
+
+SELECT * FROM trykikoda;
+
+INSERT INTO trykikoda(trykID, tryknimi, aadress)
+VALUES(1, 'räägupesa', 'muhu15')
